@@ -2,3 +2,9 @@ server:
   port: 8081
   servlet:
     context-path: /profile
+spring:
+  application:
+    name: profile-service
+  data:
+    mongodb:
+      url: mongodb://root:root@localhost:27018/profile-service?authSource=admin
