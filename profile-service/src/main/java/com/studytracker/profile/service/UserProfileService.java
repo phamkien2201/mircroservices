@@ -31,4 +31,6 @@ public class UserProfileService {
 
         return userProfileMapper.toUserProfileResponse(userProfile);
     }
+
+
 }
