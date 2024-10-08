@@ -37,13 +37,14 @@ public class SecurityConfig {
         httpSecurity.authorizeHttpRequests(request -> request
                 .requestMatchers(
                         "/swagger-resources/**",
+                        "/swagger-ui.html",
                         "/swagger-ui/**",
                         "/v3/api-docs/**",
                         "/webjars/**"
-
                 ).permitAll()
                 .requestMatchers(HttpMethod.POST, PUBLIC_ENDPOINTS)
                 .permitAll()
+
                 .anyRequest()
                 .authenticated()).cors(cors -> cors
                 .configurationSource(request -> {

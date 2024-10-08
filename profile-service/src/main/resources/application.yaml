@@ -7,4 +7,8 @@ spring:
     name: profile-service
   data:
     mongodb:
-      url: mongodb://root:root@localhost:27018/profile-service?authSource=admin
+      uri: mongodb://root:root@localhost:27017/profile-service?authSource=admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
