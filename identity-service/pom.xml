@@ -8,7 +8,7 @@
 		<version>3.2.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.devteria</groupId>
+	<groupId>com.studytracker</groupId>
 	<artifactId>identity-service</artifactId>
 	<name>identity-service</name>
 	<version>0.0.1-SNAPSHOT</version>
@@ -67,6 +67,8 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
@@ -77,7 +79,13 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<version>2.2.224</version>
+
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.3.0</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -145,10 +153,10 @@
 				</executions>
 				<configuration>
 					<excludes>
-						<exclude>com/devteria/identity/dto/**</exclude>
-						<exclude>com/devteria/identity/entity/**</exclude>
-						<exclude>com/devteria/identity/mapper/**</exclude>
-						<exclude>com/devteria/identity/configuration/**</exclude>
+						<exclude>com/studytracker/identity/dto/**</exclude>
+						<exclude>com/studytracker/identity/entity/**</exclude>
+						<exclude>com/studytracker/identity/mapper/**</exclude>
+						<exclude>com/studytracker/identity/configuration/**</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
