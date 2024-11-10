@@ -1,4 +1,4 @@
-package com.studytracker.identity.dto.response;
+package com.studytracker.gateway.dto.response;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;

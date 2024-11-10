@@ -23,7 +23,7 @@ import java.util.Collections;
 public class SecurityConfig {
 
     private static final String[] PUBLIC_ENDPOINTS = {
-        "/users", "/auth/token", "/auth/introspect", "/auth/logout", "/auth/refresh"
+        "/users/registration", "/auth/token", "/auth/introspect", "/auth/logout", "/auth/refresh", "/users/{userId}"
     };
 
     private final CustomJwtDecoder customJwtDecoder;
@@ -42,7 +42,7 @@ public class SecurityConfig {
                         "/v3/api-docs/**",
                         "/webjars/**"
                 ).permitAll()
-                .requestMatchers(HttpMethod.POST, PUBLIC_ENDPOINTS)
+                .requestMatchers(PUBLIC_ENDPOINTS)
                 .permitAll()
 
                 .anyRequest()

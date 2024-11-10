@@ -1,4 +1,4 @@
-package com.studytracker.gateway.dto;
+package com.studytracker.profile.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;

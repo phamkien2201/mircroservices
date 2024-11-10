@@ -16,6 +16,7 @@ public class UserResponse {
     String username;
     LocalDate dob;
     String email;
+    boolean emailVerified;
     String password;
     String name;
     String gender;

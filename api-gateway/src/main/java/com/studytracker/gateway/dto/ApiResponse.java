@@ -1,7 +1,6 @@
-package com.studytracker.identity.dto.request;
+package com.studytracker.gateway.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 

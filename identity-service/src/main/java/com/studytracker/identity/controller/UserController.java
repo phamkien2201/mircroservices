@@ -6,6 +6,7 @@ import com.studytracker.identity.dto.request.ApiResponse;
 import com.studytracker.identity.dto.request.UserCreationRequest;
 import com.studytracker.identity.dto.request.UserUpdateRequest;
 import com.studytracker.identity.dto.response.UserResponse;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,8 @@ import lombok.extern.slf4j.Slf4j;
 public class UserController {
     UserService userService;
 
-    @PostMapping
+    @PostMapping("/registration")
+    @Operation(summary = "tao user")
     ApiResponse<UserResponse> createUser(@RequestBody @Valid UserCreationRequest request) {
         return ApiResponse.<UserResponse>builder()
                 .result(userService.createUser(request))
@@ -46,10 +48,10 @@ public class UserController {
                 .build();
     }
 
-    @GetMapping("/my-info")
-    ApiResponse<UserResponse> getMyInfo() {
+    @GetMapping("/my-info/{username}")
+    ApiResponse<UserResponse> getMyInfo(@PathVariable("username") String username) {
         return ApiResponse.<UserResponse>builder()
-                .result(userService.getMyInfo())
+                .result(userService.getMyInfo(username))
                 .build();
     }
 

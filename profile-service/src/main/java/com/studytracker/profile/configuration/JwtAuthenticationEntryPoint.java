@@ -1,17 +1,15 @@
-package com.studytracker.identity.configuration;
+package com.studytracker.profile.configuration;
 
-import java.io.IOException;
-
-import com.studytracker.identity.dto.request.ApiResponse;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.studytracker.profile.dto.ApiResponse;
+import com.studytracker.profile.exception.ErrorCode;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import org.springframework.http.MediaType;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 
-import com.studytracker.identity.exception.ErrorCode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
 
 public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
     @Override

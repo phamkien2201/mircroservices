@@ -1,4 +1,4 @@
-package com.studytracker.identity.configuration;
+package com.studytracker.profile.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +23,7 @@ import java.util.Collections;
 public class SecurityConfig {
 
     private static final String[] PUBLIC_ENDPOINTS = {
-        "/users/registration", "/auth/token", "/auth/introspect", "/auth/logout", "/auth/refresh"
+        "/internal/users"
     };
 
     private final CustomJwtDecoder customJwtDecoder;
@@ -75,8 +75,4 @@ public class SecurityConfig {
         return jwtAuthenticationConverter;
     }
 
-    @Bean
-    PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(10);
-    }
 }

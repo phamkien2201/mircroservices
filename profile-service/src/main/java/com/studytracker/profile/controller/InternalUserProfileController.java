@@ -1,5 +1,6 @@
 package com.studytracker.profile.controller;
 
+import com.studytracker.profile.dto.ApiResponse;
 import com.studytracker.profile.dto.request.ProfileCreationRequest;
 import com.studytracker.profile.dto.response.UserProfileResponse;
 import com.studytracker.profile.service.UserProfileService;
@@ -11,16 +12,13 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
-public class UserProfileController {
+public class InternalUserProfileController {
     UserProfileService userProfileService;
 
-    @PostMapping("/users")
-    UserProfileResponse createProfile(@RequestBody ProfileCreationRequest request){
-        return userProfileService.createProfile(request);
-    }
-
-    @GetMapping("/users/{profileId}")
-    UserProfileResponse getProfile(@PathVariable String profileId){
-        return userProfileService.getProfile(profileId);
+    @PostMapping("/internal/users")
+    ApiResponse<UserProfileResponse> createProfile(@RequestBody ProfileCreationRequest request) {
+        return ApiResponse.<UserProfileResponse>builder()
+                .result(userProfileService.createProfile(request))
+                .build();
     }
 }

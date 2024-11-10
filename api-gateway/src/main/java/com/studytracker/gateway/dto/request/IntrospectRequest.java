@@ -1,4 +1,4 @@
-package com.studytracker.identity.dto.request;
+package com.studytracker.gateway.dto.request;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;

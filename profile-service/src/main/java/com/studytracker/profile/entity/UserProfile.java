@@ -21,9 +21,8 @@ public class UserProfile {
     @Id
     String id = UUID.randomUUID().toString();  // Tự động sinh UUID cho MongoDB
 
-    @Field("userId")
     String userId;
-
+    String username;
     String email;
     String name;
     LocalDate dob;

@@ -1,4 +1,4 @@
-package com.studytracker.profile.dto.response;
+package com.studytracker.identity.dto.response;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -12,6 +12,7 @@ import java.time.LocalDate;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserProfileResponse {
     String id;
+    String username;
     String email;
     String name;
     String gender;
