@@ -1,10 +1,11 @@
 package com.studytracker.identity.dto.request;
 
+import java.time.LocalDate;
+
 import com.studytracker.identity.validator.DobConstraint;
+
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-
-import java.time.LocalDate;
 
 @Data
 @NoArgsConstructor
@@ -20,7 +21,6 @@ public class ProfileCreationRequest {
     String gender;
     Integer age;
     String occupation;
-
 
     @DobConstraint(min = 10, message = "INVALID_DOB")
     LocalDate dob;

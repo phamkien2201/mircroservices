@@ -2,10 +2,6 @@ package com.studytracker.identity.configuration;
 
 import java.util.HashSet;
 
-import com.studytracker.identity.entity.Role;
-import com.studytracker.identity.entity.User;
-import com.studytracker.identity.repository.RoleRepository;
-import com.studytracker.identity.repository.UserRepository;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
@@ -13,6 +9,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.studytracker.identity.constant.PredefinedRole;
+import com.studytracker.identity.entity.Role;
+import com.studytracker.identity.entity.User;
+import com.studytracker.identity.repository.RoleRepository;
+import com.studytracker.identity.repository.UserRepository;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

@@ -2,17 +2,17 @@ package com.studytracker.identity.controller;
 
 import java.util.List;
 
-import com.studytracker.identity.dto.request.ApiResponse;
-import com.studytracker.identity.dto.request.UserCreationRequest;
-import com.studytracker.identity.dto.request.UserUpdateRequest;
-import com.studytracker.identity.dto.response.UserResponse;
-import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.*;
 
+import com.studytracker.identity.dto.request.ApiResponse;
+import com.studytracker.identity.dto.request.UserCreationRequest;
+import com.studytracker.identity.dto.request.UserUpdateRequest;
+import com.studytracker.identity.dto.response.UserResponse;
 import com.studytracker.identity.service.UserService;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -48,10 +48,10 @@ public class UserController {
                 .build();
     }
 
-    @GetMapping("/my-info/{username}")
-    ApiResponse<UserResponse> getMyInfo(@PathVariable("username") String username) {
+    @GetMapping("/my-info/")
+    ApiResponse<UserResponse> getMyInfo() {
         return ApiResponse.<UserResponse>builder()
-                .result(userService.getMyInfo(username))
+                .result(userService.getMyInfo())
                 .build();
     }
 

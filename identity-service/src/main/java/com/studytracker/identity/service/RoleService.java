@@ -3,12 +3,13 @@ package com.studytracker.identity.service;
 import java.util.HashSet;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.studytracker.identity.dto.request.RoleRequest;
 import com.studytracker.identity.dto.response.RoleResponse;
 import com.studytracker.identity.mapper.RoleMapper;
 import com.studytracker.identity.repository.PermissionRepository;
 import com.studytracker.identity.repository.RoleRepository;
-import org.springframework.stereotype.Service;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

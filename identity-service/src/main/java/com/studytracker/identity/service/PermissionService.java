@@ -2,12 +2,13 @@ package com.studytracker.identity.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.studytracker.identity.dto.request.PermissionRequest;
 import com.studytracker.identity.dto.response.PermissionResponse;
 import com.studytracker.identity.entity.Permission;
 import com.studytracker.identity.mapper.PermissionMapper;
 import com.studytracker.identity.repository.PermissionRepository;
-import org.springframework.stereotype.Service;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

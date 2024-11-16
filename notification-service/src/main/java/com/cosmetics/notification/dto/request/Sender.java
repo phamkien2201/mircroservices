@@ -12,5 +12,4 @@ public class Sender {
 
     String name;
     String email;
-
 }

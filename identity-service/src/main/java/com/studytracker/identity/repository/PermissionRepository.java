@@ -1,8 +1,9 @@
 package com.studytracker.identity.repository;
 
-import com.studytracker.identity.entity.Permission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+
+import com.studytracker.identity.entity.Permission;
 
 @Repository
 public interface PermissionRepository extends JpaRepository<Permission, String> {}

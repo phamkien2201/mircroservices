@@ -1,5 +1,10 @@
 package com.cosmetics.notification.service;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
+
 import com.cosmetics.notification.dto.request.EmailRequest;
 import com.cosmetics.notification.dto.request.SendEmailRequest;
 import com.cosmetics.notification.dto.request.Sender;
@@ -7,15 +12,12 @@ import com.cosmetics.notification.dto.response.EmailResponse;
 import com.cosmetics.notification.exception.AppException;
 import com.cosmetics.notification.exception.ErrorCode;
 import com.cosmetics.notification.repository.httpclient.EmailClient;
+
 import feign.FeignException;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
-import lombok.experimental.NonFinal;
-import org.springframework.beans.factory.annotation.Value;
 import lombok.experimental.FieldDefaults;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
+import lombok.experimental.NonFinal;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +29,7 @@ public class EmailService {
     @NonFinal
     String apiKey;
 
-    public EmailResponse sendEmail(SendEmailRequest request){
+    public EmailResponse sendEmail(SendEmailRequest request) {
         EmailRequest emailRequest = EmailRequest.builder()
                 .sender(Sender.builder()
                         .name("Study Tracker")
@@ -38,10 +40,9 @@ public class EmailService {
                 .htmlContent(request.getHtmlContent())
                 .build();
         try {
-           return emailClient.sendEmail(apiKey, emailRequest);
-        } catch (FeignException e){
+            return emailClient.sendEmail(apiKey, emailRequest);
+        } catch (FeignException e) {
             throw new AppException(ErrorCode.CANNOT_SEND_EMAIL);
         }
     }
-
 }

@@ -2,11 +2,11 @@ package com.studytracker.identity.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.*;
+
 import com.studytracker.identity.dto.request.ApiResponse;
 import com.studytracker.identity.dto.request.PermissionRequest;
 import com.studytracker.identity.dto.response.PermissionResponse;
-import org.springframework.web.bind.annotation.*;
-
 import com.studytracker.identity.service.PermissionService;
 
 import lombok.AccessLevel;

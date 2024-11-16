@@ -1,12 +1,13 @@
 package com.studytracker.identity.mapper;
 
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.MappingTarget;
+
 import com.studytracker.identity.dto.request.UserCreationRequest;
 import com.studytracker.identity.dto.request.UserUpdateRequest;
 import com.studytracker.identity.dto.response.UserResponse;
 import com.studytracker.identity.entity.User;
-import org.mapstruct.Mapper;
-import org.mapstruct.Mapping;
-import org.mapstruct.MappingTarget;
 
 @Mapper(componentModel = "spring")
 public interface UserMapper {

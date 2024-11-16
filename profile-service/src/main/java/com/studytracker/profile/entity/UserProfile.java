@@ -1,13 +1,13 @@
 package com.studytracker.profile.entity;
 
-import lombok.*;
-import lombok.experimental.FieldDefaults;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
-
 import java.time.LocalDate;
 import java.util.UUID;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 @Getter
 @Setter
@@ -19,7 +19,7 @@ import java.util.UUID;
 public class UserProfile {
 
     @Id
-    String id = UUID.randomUUID().toString();  // Tự động sinh UUID cho MongoDB
+    String id = UUID.randomUUID().toString(); // Tự động sinh UUID cho MongoDB
 
     String userId;
     String username;

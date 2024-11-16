@@ -1,11 +1,11 @@
 package com.studytracker.identity.mapper;
 
-import com.studytracker.identity.entity.Role;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
 import com.studytracker.identity.dto.request.RoleRequest;
 import com.studytracker.identity.dto.response.RoleResponse;
+import com.studytracker.identity.entity.Role;
 
 @Mapper(componentModel = "spring")
 public interface RoleMapper {
