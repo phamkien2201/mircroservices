@@ -3,7 +3,7 @@ version: '3.8'
 services:
   # API Gateway
   api-gateway:
-    image: kien2201/studytracker/api-gateway:latest  # Thay thế bằng image của bạn
+    image: kien2201/api-gateway:latest  # Thay thế bằng image của bạn
     ports:
       - "8888:8888"
     environment:
@@ -18,7 +18,7 @@ services:
 
   # Identity Service (MySQL)
   identity-service:
-    image: kien2201/studytracker/identity-service:latest  # Thay thế bằng image của bạn
+    image: kien2201/identity-service:latest  # Thay thế bằng image của bạn
     ports:
       - "8080:8080"
     environment:
@@ -38,7 +38,7 @@ services:
 
   # Profile Service (MongoDB)
   profile-service:
-    image: kien2201/studytracker/profile-service:latest  # Thay thế bằng image của bạn
+    image: kien2201/profile-service:latest  # Thay thế bằng image của bạn
     ports:
       - "8081:8081"
     environment:
@@ -50,7 +50,7 @@ services:
 
   # Notification Service (MongoDB + Kafka)
   notification-service:
-    image: kien2201/studytracker/notification-service:latest  # Thay thế bằng image của bạn
+    image: kien2201/notification-service:latest  # Thay thế bằng image của bạn
     ports:
       - "8082:8082"
     environment:
@@ -67,7 +67,7 @@ services:
 
   # Schedule Service (MongoDB)
   schedule-service:
-    image: kien2201/studytracker/schedule-service:latest  # Thay thế bằng image của bạn
+    image: kien2201/schedule-service:latest  # Thay thế bằng image của bạn
     ports:
       - "8083:8083"
     environment:
