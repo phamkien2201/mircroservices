@@ -105,6 +105,18 @@ public class UserService {
 
     @PreAuthorize("hasRole('ADMIN')")
     public void deleteUser(String userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
+
+        NotificationEvent notificationEvent = NotificationEvent.builder()
+                .channel("EMAIL")
+                .recipient(user.getEmail())
+                .subject("Account Deletion Notification")
+                .body("Your account has been deleted by an administrator.")
+                .build();
+
+        kafkaTemplate.send("user-deleted", notificationEvent);
+
         userRepository.deleteById(userId);
     }
 
