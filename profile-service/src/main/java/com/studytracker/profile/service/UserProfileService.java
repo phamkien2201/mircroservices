@@ -3,6 +3,7 @@ package com.studytracker.profile.service;
 import java.util.List;
 
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import com.studytracker.profile.dto.request.ProfileCreationRequest;
@@ -30,13 +31,9 @@ public class UserProfileService {
         return userProfileMapper.toUserProfileResponse(userProfile);
     }
 
-    public UserProfileResponse getProfile(String id) {
-        UserProfile userProfile =
-                userProfileRepository.findById(id).orElseThrow(() -> new RuntimeException("Profile not found"));
-
-        return userProfileMapper.toUserProfileResponse(userProfile);
+    public UserProfileResponse getProfile(String userId) {
+        return userProfileMapper.toUserProfileResponse(userProfileRepository.findByUserId(userId));
     }
-
     @PreAuthorize("hasRole('ADMIN')")
     public List<UserProfileResponse> getAllProfiles() {
         var profiles = userProfileRepository.findAll();

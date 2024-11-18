@@ -20,7 +20,6 @@ public class UserProfile {
 
     @Id
     String id = UUID.randomUUID().toString(); // Tự động sinh UUID cho MongoDB
-
     String userId;
     String username;
     String email;

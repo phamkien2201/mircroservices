@@ -44,7 +44,11 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
             "/swagger-ui.html",
             "/swagger-ui/*",
             "/v3/api-docs/*",
-            "/webjars/*"
+            "/webjars/*",
+            "/identity/v3/api-docs",
+            "/notification/v3/api-docs",
+            "/profile/v3/api-docs",
+            "/schedules/v3/api-docs"
     };
 
     @Value("${app.api-prefix}")
