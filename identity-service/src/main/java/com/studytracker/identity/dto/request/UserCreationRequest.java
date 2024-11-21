@@ -32,6 +32,5 @@ public class UserCreationRequest {
     Integer age;
     String occupation;
 
-    @DobConstraint(min = 10, message = "INVALID_DOB")
     LocalDate dob;
 }
