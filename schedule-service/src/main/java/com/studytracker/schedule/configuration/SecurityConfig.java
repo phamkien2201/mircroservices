@@ -22,7 +22,6 @@ import java.util.Collections;
 public class SecurityConfig {
 
     private static final String[] PUBLIC_ENDPOINTS = {
-            "/categories/**","/brands/**","/get-all-products","/category/{categoryId}","/brand/{brandId}","/{productId}"
     };
 
     private final CustomJwtDecoder customJwtDecoder;
