@@ -36,8 +36,10 @@ public class AuthenticationFilter implements GlobalFilter, Ordered {
     ObjectMapper objectMapper;
 
     @NonFinal
-    private String[] publicEndpoints = {
-            "/identity/auth/*",
+     String[] publicEndpoints = {
+            "/identity/auth/token",
+            "/identity/auth/logout",
+            "/identity/auth/refresh",
             "/identity/users/registration",
             "/notification/email/send",
             "/swagger-resources/*",
