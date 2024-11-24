@@ -45,6 +45,10 @@ public class ScheduleService {
         return categoryPage.getContent();
     }
 
+    public List<ScheduleResponse> getScheduleByUserId(String userId) {
+        List<Schedule> schedules = scheduleRepository.findByUserId(userId);
+        return scheduleMapper.toScheduleResponseList(schedules);
+    }
 
     public ScheduleResponse updateSchedule(String id,
                                ScheduleRequest request) {

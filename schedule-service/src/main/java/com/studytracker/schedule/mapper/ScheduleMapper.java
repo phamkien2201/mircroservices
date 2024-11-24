@@ -7,6 +7,8 @@ import com.studytracker.schedule.entity.Schedule;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface ScheduleMapper {
 
@@ -15,4 +17,5 @@ public interface ScheduleMapper {
     ScheduleResponse toScheduleResponse(Schedule schedule);
 
     void updateSchedule(@MappingTarget Schedule schedule, ScheduleRequest request);
+    List<ScheduleResponse> toScheduleResponseList(List<Schedule> schedules);
 }

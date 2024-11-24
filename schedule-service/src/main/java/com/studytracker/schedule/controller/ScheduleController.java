@@ -18,7 +18,6 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/categories")
 @Slf4j
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class ScheduleController {
@@ -34,8 +33,8 @@ public class ScheduleController {
                 .build();
     }
 
-    @GetMapping("/get-all-categories")
-    @Operation(summary = "Lấy tất cả danh mục sản phâm")
+    @GetMapping("/get-all-schedules")
+    @Operation(summary = "Lấy tất cả")
     public ResponseEntity<List<Schedule>> getAllSchedules(
             @RequestParam(value = "page", required = false) Integer page,
             @RequestParam(value = "limit", required = false ) Integer limit
@@ -60,8 +59,8 @@ public class ScheduleController {
     }
 
     @DeleteMapping("/{id}")
-    @Operation(summary = "Xóa danh mục")
-    public void deleteCategories(@PathVariable String id) {
+    @Operation(summary = "Xóa mục")
+    public void deleteSchedules(@PathVariable String id) {
         scheduleService.deleteSchedule(id);
     }
 
@@ -71,5 +70,10 @@ public class ScheduleController {
     public ResponseEntity<ScheduleResponse> getScheduleById(@PathVariable("id") String id) {
         ScheduleResponse schedule = scheduleService.getScheduleById(id);
         return ResponseEntity.ok(schedule);
+    }
+
+    @GetMapping("/get-schedules-by/{userId}")
+    public List<ScheduleResponse> getSchedulesByUserId(@PathVariable String userId) {
+        return scheduleService.getScheduleByUserId(userId);
     }
 }
