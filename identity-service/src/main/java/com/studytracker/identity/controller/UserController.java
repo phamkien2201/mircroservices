@@ -67,4 +67,12 @@ public class UserController {
                 .result(userService.updateUser(userId, request))
                 .build();
     }
+
+    @PutMapping("/{userId}/deactivate")
+    ApiResponse<String> deactivateUser(@PathVariable String userId) {
+        userService.deactivateUser(userId);
+        return ApiResponse.<String>builder()
+                .result("User has been deactivated")
+                .build();
+    }
 }

@@ -30,6 +30,9 @@ public class User {
     @Column(name = "email_verified", nullable = false, columnDefinition = "boolean default false")
     boolean emailVerified;
 
+    @Column(name = "active", columnDefinition = "TINYINT(1) DEFAULT 1")
+    boolean active;
+
     @ManyToMany
     Set<Role> roles;
 }

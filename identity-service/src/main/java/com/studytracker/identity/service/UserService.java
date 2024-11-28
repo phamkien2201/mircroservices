@@ -53,6 +53,7 @@ public class UserService {
 
         user.setRoles(roles);
         user.setEmailVerified(false);
+        user.setActive(true);
 
         try {
             user = userRepository.save(user);
@@ -90,7 +91,6 @@ public class UserService {
         return userMapper.toUserResponse(user);
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     public UserResponse updateUser(String userId, UserUpdateRequest request) {
         User user = userRepository.findById(userId).orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
 
@@ -130,4 +130,26 @@ public class UserService {
         return userMapper.toUserResponse(
                 userRepository.findById(id).orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED)));
     }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    public void deactivateUser(String userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new AppException(ErrorCode.USER_NOT_EXISTED));
+
+        user.setActive(!user.isActive());
+        userRepository.save(user);
+
+        log.info("User with ID {} has been {}.", userId, user.isActive() ? "activated" : "deactivated");
+
+        NotificationEvent notificationEvent = NotificationEvent.builder()
+                .channel("EMAIL")
+                .recipient(user.getEmail())
+                .subject(user.isActive() ? "Account Activated" : "Account Deactivated")
+                .body(user.isActive() ? "Your account has been activated by an administrator." : "Your account has been deactivated by an administrator.")
+                .build();
+
+        kafkaTemplate.send("user-status-changed", notificationEvent);
+    }
+
+
 }

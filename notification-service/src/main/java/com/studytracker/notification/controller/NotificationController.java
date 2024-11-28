@@ -39,4 +39,14 @@ public class NotificationController {
                 .htmlContent(message.getBody())
                 .build());
     }
+
+    @KafkaListener(topics = "user-deactivated")
+    public void listenUserDeactivationNotification(NotificationEvent message) {
+        log.info("User Deactivation Message received: {}", message);
+        emailService.sendEmail(SendEmailRequest.builder()
+                .to(Recipient.builder().email(message.getRecipient()).build())
+                .subject(message.getSubject())
+                .htmlContent(message.getBody())
+                .build());
+    }
 }
