@@ -110,7 +110,7 @@ public class AuthenticationService {
         var username = signedJWT.getJWTClaimsSet().getSubject();
 
         var user =
-                userRepository.findByUsername(username).orElseThrow(() -> new AppException(ErrorCode.UNAUTHENTICATED));
+                userRepository.findById(username).orElseThrow(() -> new AppException(ErrorCode.UNAUTHENTICATED));
 
         var token = generateToken(user);
 
